@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Camera </title>
+    <link rel="stylesheet" href="main.css"> 
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Camera Live</h1>
+        <p>Xem và điều khiển camera trực tiếp của bạn</p>
+    </header>
+
+    <main>
+        
+        <div class="video-container">
+            <video id="cameraVideo" autoplay playsinline></video>
+            <div id="timeDisplay" class="time-display"></div> <!-- Hiển thị thời gian thực -->
+        </div>
+        <div class="controls">
+            <button onclick="rewind30()">⏪ Tua Ngược 30s</button>
+            <button onclick="takeSnapshot()">📸 Chụp Ảnh</button>
+            <button onclick="forward30()">⏩ Tua Tiếp 30s</button>
+            <button onclick="toggleCutControls()">✂ Cắt Video</button>
+        </div>
+        <div id="cutControls" class="cut-controls" style="display: none;">
+            <label for="startTime">Thời gian bắt đầu:</label>
+            <input type="number" id="startTime" min="0" value="0">
+            
+            <label for="endTime">Thời gian kết thúc:</label>
+            <input type="number" id="endTime" min="0" value="30">
+            
+            <button onclick="confirmCut()">Xác nhận cắt</button>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2024 Xem Camera. Thiết kế bởi Nguyễn Thế Nhật - Phan Trọng Dũng.</p>
+    </footer>
+
+    <canvas id="snapshotCanvas" style="display:none;"></canvas>
+
+    <script src="script.js"></script>
+</body>
+</html>
